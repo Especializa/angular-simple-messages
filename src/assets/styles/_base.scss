@@ -1,0 +1,23 @@
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url(/assets/images/course_wallpaper.jpg);
+  background-size: cover;
+  font-family: sans-serif;
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 100px;
+      height: 28px;
+      align-content: flex-end;
+      margin: 5px;
+    }
+  }
+}
