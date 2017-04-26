@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewMessageModule } from './new-message/new-message.module';
 import { OldMessagesModule } from './old-messages/old-messages.module';
+import { CoreModule, MessagesService } from './core';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { OldMessagesModule } from './old-messages/old-messages.module';
     AppRoutingModule,
     NewMessageModule,
     OldMessagesModule,
+    CoreModule,
   ],
-  providers: [],
+  providers: [MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

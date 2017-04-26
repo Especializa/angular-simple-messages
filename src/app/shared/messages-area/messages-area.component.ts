@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Message } from '../../core';
 
 @Component({
   selector: 'app-messages-area',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages-area.component.scss']
 })
 export class MessagesAreaComponent implements OnInit {
+  @Input() messages: Message[];
 
   constructor() { }
 
