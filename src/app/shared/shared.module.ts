@@ -6,6 +6,7 @@ import { MessagesAreaComponent } from './messages-area/messages-area.component';
   imports: [
     CommonModule
   ],
-  declarations: [MessagesAreaComponent]
+  declarations: [MessagesAreaComponent],
+  exports: [MessagesAreaComponent]
 })
 export class SharedModule { }

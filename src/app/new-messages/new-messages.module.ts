@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
   ],
-  declarations: [NewMessagesComponent, MessageBoxComponent]
+  declarations: [NewMessagesComponent, MessageBoxComponent],
+  exports: [NewMessagesComponent]
 })
 export class NewMessagesModule { }
