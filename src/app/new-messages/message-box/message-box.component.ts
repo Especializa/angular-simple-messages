@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-message-box',
@@ -6,14 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-box.component.scss']
 })
 export class MessageBoxComponent implements OnInit {
-
   public text = '';
+  @Output() onNewMessage = new EventEmitter<string>();
 
   constructor() { }
 
   buttonClicked() {
-    console.log('The button has been clicked');
-    console.log(`this.text is currently ${this.text}`);
+    this.onNewMessage.emit(this.text);
   }
 
   ngOnInit() {
