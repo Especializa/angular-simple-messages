@@ -15,4 +15,8 @@ export class MessagesAreaComponent implements OnInit {
   isImageMessage(m: Message) {
     return m instanceof ImageMessage;
   }
+
+  trackBy(index: number, m: Message) {
+    return m.created;
+  }
 }

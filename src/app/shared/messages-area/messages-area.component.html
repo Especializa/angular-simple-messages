@@ -1,14 +1,14 @@
   <section class="MessagesArea">
     <ul id="messages" class="List">
-      <li class="List__Item">
-        <img *ngIf="isImageMessage(messages[0]); else imageTitle"
-          [src]="messages[0].url"
-          [alt]="messages[0].text"
-          [title]="messages[0].text">
+      <li *ngFor="let message of messages; let i = index; let odd = odd; trackBy: trackBy" class="List__Item">
+        <img *ngIf="isImageMessage(message); else imageTitle"
+          [src]="message.url"
+          [alt]="message.text"
+          [title]="message.text">
         <ng-template #imageTitle>
-          <div class="List__Item__Text">{{messages[0].text}}</div>
+          <div class="List__Item__Text">{{message.text}}</div>
         </ng-template>
-        <div class="List__Item__Created">{{messages[0].created}}</div>
+        <div class="List__Item__Created">{{message.created}}</div>
       </li>
     </ul>
   </section>
