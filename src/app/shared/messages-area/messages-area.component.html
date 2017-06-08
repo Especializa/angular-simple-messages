@@ -1,14 +1,6 @@
   <section class="MessagesArea">
     <ul id="messages" class="List">
-      <li *ngFor="
-      let message of messages;
-      let i = index;
-      let odd = odd;
-      trackBy: trackBy" class="List__Item"
-      [class.other]="true"
-      [class.image-message]="!isImageMessage(message)"
-      [ngClass]="{ 'otherA': true, 'otherB': false, 'otherC': true }"
-      [ngStyle]="{'border': '1px solid transparent'}">
+      <li *ngFor="let message of messages; trackBy: trackBy" class="List__Item">
         <img *ngIf="isImageMessage(message); else imageTitle"
           [src]="message.url"
           [alt]="message.text"
