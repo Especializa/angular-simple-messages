@@ -1,4 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Input, Output, EventEmitter,
+         Component, OnChanges, OnInit, DoCheck,
+         AfterContentInit, AfterContentChecked,
+         AfterViewInit, AfterViewChecked,
+         OnDestroy, SimpleChanges } from '@angular/core';
 import { Message, ImageMessage } from 'app/core';
 
 @Component({
@@ -6,7 +10,9 @@ import { Message, ImageMessage } from 'app/core';
   templateUrl: './messages-area.component.html',
   styleUrls: ['./messages-area.component.scss']
 })
-export class MessagesAreaComponent implements OnInit, OnChanges {
+export class MessagesAreaComponent implements OnChanges, OnInit, DoCheck,
+  AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
+  OnDestroy {
   @Output() messagesChange = new EventEmitter<Message[]>();
   private _messages: Message[] = [];
 
@@ -21,11 +27,30 @@ export class MessagesAreaComponent implements OnInit, OnChanges {
     return this._messages;
   }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log('MessagesArea - ngOnChanges');
+    // console.log(changes);
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+  ngOnInit() {
+    // console.log('MessagesArea - ngOnInit');
+  }
+  ngDoCheck(): void {
+    // console.log('MessagesArea - ngDoCheck');
+  }
+  ngAfterContentInit(): void {
+    // console.log('MessagesArea - ngAfterContentInit');
+  }
+  ngAfterContentChecked(): void {
+    // console.log('MessagesArea - ngAfterContentChecked');
+  }
+  ngAfterViewInit(): void {
+    // console.log('MessagesArea - ngAfterViewInit');
+  }
+  ngAfterViewChecked(): void {
+    // console.log('MessagesArea - ngAfterViewChecked');
+  }
+  ngOnDestroy(): void {
+    // console.log('MessagesArea - ngOnDestroy');
   }
 
   isImageMessage(m: Message) {
