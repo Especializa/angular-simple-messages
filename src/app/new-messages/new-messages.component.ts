@@ -7,7 +7,7 @@ import { Message } from 'app/core';
   styleUrls: ['./new-messages.component.scss']
 })
 export class NewMessagesComponent implements OnInit {
-  public messages: Message[] = [];
+  public messages: Message[];
 
   constructor() { }
 
