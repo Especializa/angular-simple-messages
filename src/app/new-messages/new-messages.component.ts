@@ -12,38 +12,39 @@ import { Message } from 'app/core';
 export class NewMessagesComponent implements OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
   OnDestroy {
-  public messages: Message[];
+  public messages: Message[] = [];
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log('NewMessages - ngOnChanges');
-    // console.log(changes);
+    console.log('NewMessages - ngOnChanges');
   }
   ngOnInit() {
-    // console.log('NewMessages - ngOnInit');
+    console.log('NewMessages - ngOnInit');
   }
   ngDoCheck(): void {
-    // console.log('NewMessages - ngDoCheck');
+    console.log('NewMessages - ngDoCheck');
   }
   ngAfterContentInit(): void {
-    // console.log('NewMessages - ngAfterContentInit');
+    console.log('NewMessages - ngAfterContentInit');
   }
   ngAfterContentChecked(): void {
-    // console.log('NewMessages - ngAfterContentChecked');
+    console.log('NewMessages - ngAfterContentChecked');
   }
   ngAfterViewInit(): void {
-    // console.log('NewMessages - ngAfterViewInit');
+    console.log('NewMessages - ngAfterViewInit');
   }
   ngAfterViewChecked(): void {
-    // console.log('NewMessages - ngAfterViewChecked');
+    console.log('NewMessages - ngAfterViewChecked');
   }
   ngOnDestroy(): void {
-    // console.log('NewMessages - ngOnDestroy');
+    console.log('NewMessages - ngOnDestroy');
   }
 
   onNewMessage(text: string) {
-    const m = new Message(text);
-    this.messages.push(m);
+    this.messages = [
+      ...this.messages,
+      new Message(text),
+    ];
   }
 }

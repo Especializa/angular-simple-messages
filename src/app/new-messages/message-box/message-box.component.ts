@@ -22,28 +22,27 @@ export class MessageBoxComponent implements OnChanges, OnInit, DoCheck,
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log('MessageBox - ngOnChanges');
-    // console.log(changes);
+    console.log('MessageBox - ngOnChanges');
   }
   ngOnInit() {
-    // console.log('MessageBox - ngOnInit');
+    console.log('  MessageBox - ngOnInit');
   }
   ngDoCheck(): void {
-    // console.log('MessageBox - ngDoCheck');
+    console.log('  MessageBox - ngDoCheck');
   }
   ngAfterContentInit(): void {
-    // console.log('MessageBox - ngAfterContentInit');
+    console.log('  MessageBox - ngAfterContentInit');
   }
   ngAfterContentChecked(): void {
-    // console.log('MessageBox - ngAfterContentChecked');
+    console.log('  MessageBox - ngAfterContentChecked');
   }
   ngAfterViewInit(): void {
-    // console.log('MessageBox - ngAfterViewInit');
+    console.log('  MessageBox - ngAfterViewInit');
   }
   ngAfterViewChecked(): void {
-    // console.log('MessageBox - ngAfterViewChecked');
+    console.log('  MessageBox - ngAfterViewChecked');
   }
   ngOnDestroy(): void {
-    // console.log('MessageBox - ngOnDestroy');
+    console.log('  MessageBox - ngOnDestroy');
   }
 }

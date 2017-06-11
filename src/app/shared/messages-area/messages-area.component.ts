@@ -1,26 +1,27 @@
-import { Input, Output, EventEmitter,
-         Component, OnChanges, OnInit, DoCheck,
+import { Input, Component, OnChanges, OnInit, DoCheck,
          AfterContentInit, AfterContentChecked,
          AfterViewInit, AfterViewChecked,
-         OnDestroy, SimpleChanges } from '@angular/core';
+         OnDestroy, SimpleChanges, ChangeDetectionStrategy
+       } from '@angular/core';
 import { Message, ImageMessage } from 'app/core';
 
 @Component({
   selector: 'app-messages-area',
   templateUrl: './messages-area.component.html',
-  styleUrls: ['./messages-area.component.scss']
+  styleUrls: ['./messages-area.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessagesAreaComponent implements OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
   OnDestroy {
-  @Output() messagesChange = new EventEmitter<Message[]>();
-  private _messages: Message[] = [];
+  private _messages: Message[];
 
   @Input() set messages(messages: Message[]) {
     if (Array.isArray(messages)) {
       this._messages = messages;
+    } else {
+      this._messages = [];
     }
-    this.messagesChange.emit(this._messages);
   }
 
   get messages() {
@@ -28,29 +29,28 @@ export class MessagesAreaComponent implements OnChanges, OnInit, DoCheck,
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log('MessagesArea - ngOnChanges');
-    // console.log(changes);
+    console.log('  MessagesArea - ngOnChanges');
   }
   ngOnInit() {
-    // console.log('MessagesArea - ngOnInit');
+    console.log('  MessagesArea - ngOnInit');
   }
   ngDoCheck(): void {
-    // console.log('MessagesArea - ngDoCheck');
+    console.log('  MessagesArea - ngDoCheck');
   }
   ngAfterContentInit(): void {
-    // console.log('MessagesArea - ngAfterContentInit');
+    console.log('  MessagesArea - ngAfterContentInit');
   }
   ngAfterContentChecked(): void {
-    // console.log('MessagesArea - ngAfterContentChecked');
+    console.log('  MessagesArea - ngAfterContentChecked');
   }
   ngAfterViewInit(): void {
-    // console.log('MessagesArea - ngAfterViewInit');
+    console.log('  MessagesArea - ngAfterViewInit');
   }
   ngAfterViewChecked(): void {
-    // console.log('MessagesArea - ngAfterViewChecked');
+    console.log('  MessagesArea - ngAfterViewChecked');
   }
   ngOnDestroy(): void {
-    // console.log('MessagesArea - ngOnDestroy');
+    console.log('  MessagesArea - ngOnDestroy');
   }
 
   isImageMessage(m: Message) {
