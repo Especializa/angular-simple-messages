@@ -5,7 +5,6 @@ import { ImageMessage } from './image-message.model';
 
 @Injectable()
 export class MessagesService {
-  public text = 'voti';
   constructor() { }
 
   public messageFactory(text: string): Promise<Message> {
