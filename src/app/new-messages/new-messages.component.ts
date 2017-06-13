@@ -2,19 +2,19 @@ import { Component, OnChanges, OnInit, DoCheck,
          AfterContentInit, AfterContentChecked,
          AfterViewInit, AfterViewChecked,
          OnDestroy, SimpleChanges } from '@angular/core';
-import { Message } from 'app/core';
+import { Message, MessagesService } from 'app/core';
 
 @Component({
   selector: 'app-new-messages',
   templateUrl: './new-messages.component.html',
-  styleUrls: ['./new-messages.component.scss']
+  styleUrls: ['./new-messages.component.scss'],
 })
 export class NewMessagesComponent implements OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
   OnDestroy {
   public messages: Message[] = [];
 
-  constructor() { }
+  constructor(private messagesService: MessagesService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('NewMessages - ngOnChanges');
@@ -42,9 +42,8 @@ export class NewMessagesComponent implements OnChanges, OnInit, DoCheck,
   }
 
   onNewMessage(text: string) {
-    this.messages = [
-      ...this.messages,
-      new Message(text),
-    ];
+    this.messagesService.addMessage(text).then((messages: Message[]) => {
+      this.messages = messages;
+    });
   }
 }
