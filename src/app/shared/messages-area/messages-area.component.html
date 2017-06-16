@@ -8,7 +8,9 @@
         <ng-template #imageTitle>
           <div class="List__Item__Text">{{message.text}}</div>
         </ng-template>
-        <div class="List__Item__Created">{{message.created}}</div>
+        <div class="List__Item__Created">
+          {{message.created | distanceToNow : true }}
+        </div>
       </li>
     </ul>
   </section>
