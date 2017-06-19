@@ -45,4 +45,17 @@ export class MessagesService {
     }
     return this.messages;
   }
+
+  public listMessages(): Message[] {
+    return this.messages;
+  }
+
+  public editMessage(index: number, message: Message) {
+    this.messages = [
+      ...this.messages.slice(0, index),
+      message,
+      ...this.messages.slice(index + 1),
+    ];
+    localStorage.setItem('messages', JSON.stringify(this.messages));
+  }
 }
