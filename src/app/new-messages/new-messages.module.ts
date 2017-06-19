@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NewMessagesComponent } from './new-messages.component';
@@ -10,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     FormsModule,
+    RouterModule,
   ],
   declarations: [NewMessagesComponent, MessageBoxComponent],
   exports: [NewMessagesComponent]

@@ -3,5 +3,8 @@
       <input [(ngModel)]="text" class="MessageBox__fields--text" type="text" id="message">
       <button (click)="buttonClicked()" class="MessageBox__fields--button" id="send">Send</button>
     </div>
-    <a href="/old-messages" class="MessageBox--link">Old messages</a>
+    <div>
+      <a href="/old-messages" class="MessageBox--link">Old messages</a>
+      <a routerLink="/old-messages" class="MessageBox--link">Old messages (routerLink)</a>
+    </div>
   </header>

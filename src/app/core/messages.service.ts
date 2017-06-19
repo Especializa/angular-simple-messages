@@ -33,7 +33,16 @@ export class MessagesService {
         ...this.messages,
         m,
       ];
+      localStorage.setItem('messages', JSON.stringify(this.messages));
       return this.messages;
     });
+  }
+
+  public loadMessages(): Message[] {
+    const item = localStorage.getItem('messages');
+    if (item) {
+      this.messages = JSON.parse(item);
+    }
+    return this.messages;
   }
 }

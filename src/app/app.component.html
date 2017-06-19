@@ -1,3 +1,12 @@
 <header><img id="logo" [src]="logoPath" alt=""></header>
-<app-new-messages></app-new-messages>
 <router-outlet></router-outlet>
+<button
+  routerLink="/new-messages"
+  routerLinkActive="active-link"
+  #nml="routerLinkActive"
+  >New Messages {{nml.isActive ? '*' : ''}}</button>
+<button
+  routerLink="/old-messages"
+  routerLinkActive="active-link"
+  #oml="routerLinkActive"
+  >Old Messages {{oml.isActive ? '*' : ''}}</button>
